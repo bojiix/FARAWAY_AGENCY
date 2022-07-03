@@ -204,6 +204,10 @@ body {
                             &:hover {
                                 z-index: 10;
                                 background-color: rgba(0, 0, 0);
+    
+                                h2 {
+                                    text-shadow: 2px 4px 20px #F0F200;
+                                }
                             }
                         }
     

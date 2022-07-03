@@ -192,6 +192,9 @@ body main .container .wrapper .about-container .about, body main .container .wra
     z-index: 10;
     background-color: black;
   }
+  body main .container .wrapper .about-container .about:hover h2, body main .container .wrapper .about-container .activity:hover h2 {
+    text-shadow: 2px 4px 20px #F0F200;
+  }
 }
 body main .container .wrapper .about-container .about h2, body main .container .wrapper .about-container .activity h2 {
   margin-bottom: 15px;
