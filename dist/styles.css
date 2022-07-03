@@ -1,0 +1,367 @@
+*, body, html {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway";
+}
+
+html {
+  overflow: hidden !important;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+   supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background-image: url("../res/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+body main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+body main .container {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  animation: 1.5s ease-out 0s 1 openFromBottom;
+  animation-fill-mode: forwards;
+  width: calc(100% - 350px);
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body main .container:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 175px;
+  transform: translateX(100%);
+  background-color: rgba(0, 0, 0, 0.35);
+  animation: 0.5s ease-out 0s 1 slideBarFromLeft;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+@keyframes slideBarFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes openFromBottom {
+  0% {
+    height: 0;
+    padding: 0;
+  }
+  60% {
+    height: 5%;
+    padding: 0;
+  }
+  100% {
+    opacity: 1;
+    height: calc(100% - 125px);
+    padding: 35px 75px 15px 75px;
+  }
+}
+body main .container .wrapper {
+  overflow-y: visible !important;
+  overflow-x: hidden !important;
+  display: grid;
+  grid-template-rows: auto minmax(250px, 1fr) !important;
+  gap: 100px;
+  height: 100%;
+}
+body main .container .wrapper .title-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 50px;
+  overflow: hidden !important;
+}
+body main .container .wrapper .title-container .logo {
+  grid-row: 1/3;
+  grid-column: 2/3;
+  justify-self: end;
+  align-self: center;
+  animation: 0.5s ease-out 0s 1 slideFromLeft;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+body main .container .wrapper .title-container .logo img {
+  width: 15em;
+  height: auto;
+}
+body main .container .wrapper .title-container h2 {
+  padding-left: 25px;
+  grid-row: 2/3;
+  grid-column: 1/3;
+  align-self: end;
+  animation: 0.9s ease-out 0s 1 slideFromRight;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(15%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+body main .container .wrapper .about-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: fit-content;
+  max-height: fit-content;
+  overflow: hidden !important;
+}
+body main .container .wrapper .about-container .about, body main .container .wrapper .about-container .activity {
+  position: absolute;
+  width: calc(50% - 30px);
+  height: 50%;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  z-index: 0;
+  animation: 0.9s ease-out 0s 1 showInOrder;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transition: 0.4s;
+  font-size: 18px;
+  min-height: fit-content;
+  overflow: hidden !important;
+  color: #fff;
+}
+@keyframes showInOrder {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media only screen and (min-width: 800px) and (min-height: 701px) {
+  body main .container .wrapper .about-container .about:hover, body main .container .wrapper .about-container .activity:hover {
+    z-index: 10;
+    background-color: black;
+  }
+}
+body main .container .wrapper .about-container .about h2, body main .container .wrapper .about-container .activity h2 {
+  margin-bottom: 15px;
+}
+body main .container .wrapper .about-container .about {
+  top: 0;
+  left: 0;
+  animation-delay: 1.75s;
+}
+body main .container .wrapper .about-container .activity {
+  bottom: 0;
+  right: 0;
+  animation-delay: 2.25s;
+}
+body footer {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1100px) {
+  body main .container {
+    width: calc(100% - 200px) !important;
+    grid-template-rows: auto auto !important;
+    height: calc(100% - 75px) !important;
+  }
+  body main .container .wrapper {
+    gap: 30px;
+  }
+  body main .container .title-container {
+    grid-template-rows: auto auto auto !important;
+  }
+  body main .container .title-container .logo {
+    grid-row: 1/3 !important;
+    grid-column: 1/3 !important;
+  }
+  body main .container .title-container h2 {
+    grid-row: 3/4 !important;
+    grid-column: 1/3 !important;
+    justify-self: center;
+    padding: 0 !important;
+    margin-bottom: 10px;
+  }
+  body main .container .about-container .about, body main .container .about-container .activity {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 8%;
+    padding-right: 8%;
+    background-color: red;
+  }
+  body main .container .about-container .activity {
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  body main .container {
+    height: calc(100% - 50px) !important;
+    width: 100% !important;
+    top: 0;
+    border-radius: 0;
+  }
+  body main .container .wrapper {
+    display: block;
+  }
+  body main .container .title-container {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  body main .container .title-container .logo, body main .container .title-container h2 {
+    justify-self: center !important;
+  }
+  body main .container .title-container h2 {
+    margin: 0 10px !important;
+  }
+  body main .container .about-container {
+    position: relative;
+  }
+  body main .container .about-container .about, body main .container .about-container .activity {
+    position: relative !important;
+    width: calc(100% - 150px) !important;
+    height: fit-content !important;
+    margin: 0 auto;
+  }
+  body main .container .about-container .activity {
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  body main .container {
+    height: calc(100% - 40px) !important;
+    padding-top: 25px !important;
+  }
+  body main .container .title-container {
+    grid-template-rows: 1fr auto !important;
+    gap: 25px;
+  }
+  body main .container:before {
+    height: 150px;
+  }
+  body main .container .about-container .about, body main .container .about-container .activity {
+    border-radius: 0 !important;
+    width: calc(100% - 70px);
+    padding: 35px;
+    padding-bottom: 50px;
+  }
+  body main .container .about-container .activity {
+    margin-top: 0;
+    margin-bottom: 100px;
+    border-top: 1px solid #fff;
+  }
+}
+@media only screen and (max-width: 425px) {
+  body main .container .about-container .about, body main .container .about-container .activity {
+    width: calc(100% - 50px) !important;
+    padding: 25px !important;
+  }
+}
+@media only screen and (max-height: 700px) and (min-width: 800px) {
+  body main .container {
+    height: calc(100% - 50px) !important;
+    width: 100% !important;
+    top: 0;
+    border-radius: 0;
+  }
+  body main .container .wrapper {
+    display: block;
+  }
+  body main .container .title-container {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  body main .container .title-container .logo, body main .container .title-container h2 {
+    justify-self: center !important;
+  }
+  body main .container .title-container .logo {
+    margin-right: 25px;
+  }
+  body main .container .title-container h2 {
+    margin: 0 10px !important;
+  }
+  body main .container .about-container {
+    position: relative;
+  }
+  body main .container .about-container .about, body main .container .about-container .activity {
+    position: relative !important;
+    width: calc(100% - 150px) !important;
+    height: fit-content !important;
+    margin: 0 auto;
+  }
+  body main .container .about-container .activity {
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-height: 550px) {
+  body main .container .wrapper {
+    height: 500px;
+  }
+  body main .container .wrapper .about-container {
+    height: 600px !important;
+  }
+}
+@media only screen and (max-height: 350px) {
+  body main .container .wrapper {
+    height: 400px;
+  }
+  body main .container .wrapper .about-container {
+    height: 600px !important;
+  }
+}
